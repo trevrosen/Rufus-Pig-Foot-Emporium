@@ -1,0 +1,6 @@
+gem 'compass'
+gem 'haml'
+gem 'unicorn'
+gem 'capistrano'
+gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'redis_cacheable', :path => '../redis_cacheable'
