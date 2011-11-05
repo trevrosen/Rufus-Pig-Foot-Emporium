@@ -1,1 +1,9 @@
 %h1.title=@title
+
+.trendline-wrapper
+
+
+:javascript
+  $(function (){
+    $.dashboard.init.trendLineGraph(".trendline-wrapper","#{@test_flot}");
+  })

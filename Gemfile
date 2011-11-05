@@ -1,5 +1,9 @@
+source :rubygems
+
 gem 'compass'
+gem 'sinatra'
 gem 'haml'
+gem 'json'
 gem 'unicorn'
 gem 'capistrano'
 gem 'ruby-debug19', :require => 'ruby-debug'

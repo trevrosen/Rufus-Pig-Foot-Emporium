@@ -1,9 +1,19 @@
-%header
-  #navigation-bar
-    %ul.main-nav
-      %li Home
-      %li About Pigs
-      %li About Feet
-      %li Dashboard
+%html
+  %head
+    %link{:rel => "stylesheet", :href => "/stylesheets/screen.css", :type => "text/css", :media => "screen"}
+    %script{:type => "text/javascript", :src => "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/jquery.flot.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/jquery.flot.pie.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/application.js"}
 
-%section.content=yield
+  %body
+    #container
+      %header
+        #navigation-bar
+          %ul.main-nav
+            %li Home
+            %li About Pigs
+            %li About Feet
+            %li Dashboard
+
+      %section.content=yield
