@@ -10,15 +10,15 @@ module Dashboard
     end
 
     def current_price
-      @doc.xpath('//pod[@title="Result"]/subpod/plaintext').first.content
+      doc.xpath('//pod[@title="Result"]/subpod/plaintext').first.content
     end
 
     def price_history
-      @doc.xpath('//pod[@title="Price history"]/subpod/plaintext').first.content
+      doc.xpath('//pod[@title="Price history"]/subpod/plaintext').first.content
     end
 
     def most_recent_trade_info
-      @doc.xpath('//pod[@id="DailyTradeInformation:FuturesData"]/subpod/plaintext').first.content
+      doc.xpath('//pod[@id="DailyTradeInformation:FuturesData"]/subpod/plaintext').first.content
     end
     
   end
