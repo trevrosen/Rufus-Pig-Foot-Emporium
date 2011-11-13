@@ -1,13 +1,33 @@
-%h1.title=@title
-
-%h2 Hog Price
+%h2 OinkBot&trade;
 
 .price=@price_text
 
-.trendline-wrapper
+%section.trends.clearfix
+  .left-column
+    %h3 Global Sales Leaders
+    %table.sales-leaders
+      %tr
+        %th NAME
+        %th OFFICE
+        %th SALES DOLLARS
+      -@sales_leaders.each do |leader|
+        %tr
+          %td=leader.name
+          %td=leader.office
+          %td=leader.sales_quantity
 
+  .right-column
+    %h3 Current Trotter Trendline
+    .trendline-wrapper
+    :javascript
+      $(function (){
+        $.dashboard.init.trendLineGraph(".trendline-wrapper","#{@test_flot}");
+      })
 
-:javascript
-  $(function (){
-    $.dashboard.init.trendLineGraph(".trendline-wrapper","#{@test_flot}");
-  })
+%section.news.clearfix
+  %h3 News (from PigProgress.net)
+  .left-column
+    -@pig_news.entries.each do |entry|
+      .entry
+        %h4
+          %a{:href => "#{entry.url}"}=entry.title

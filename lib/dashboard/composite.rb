@@ -21,6 +21,7 @@ module Dashboard
 
     def load_from_live
       # load pig_news
+      # @pig_news = Feedzirra::Feed.fetch_and_parse('http://pigprogress.net/index.xml')
       
       # load Wolfram stuff
       wolfram_hogs            = Dashboard::WolframSearch.new

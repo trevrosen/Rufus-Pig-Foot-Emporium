@@ -17,7 +17,7 @@
 // If you are doing a lot of stylesheet concatenation, it is suggested
 // that you scope your blueprint styles, so that you can better control
 // what pages use blueprint when stylesheets are concatenated together.
-body.bp {
+body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-debug;
@@ -40,14 +40,22 @@ body {
   #container {
     @include container; }
   #header, #footer {
-    @include column($blueprint-grid-columns); }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
+    @include column($blueprint-grid-columns); 
+  }
+  
   #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns, true); } }
+    @include column($blueprint-grid-columns); 
+
+    .left-column{
+      @include column(10);
+      float: left;
+    
+    }
+
+    .right-column{
+      @include column(10);
+      float: right;
+    }
+
+  } 
+}
