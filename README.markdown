@@ -1,5 +1,9 @@
 # Rufus's(s) Pig Foot Emporium
 
-**nothing to see here quite yet**
-
 A fun demo app for RedisCacheable
+
+## Setup
+
+     git clone git@github.com:trevrosen/Rufus-Pig-Foot-Emporium
+     cd <CLONE DIRECTORY> && bundle install
+     bundle exec ruby app.rb
