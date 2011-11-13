@@ -529,6 +529,12 @@ body #content {
   overflow-x: hidden;
 }
 /* line 49, ../sass/screen.scss */
+body #content section {
+  margin-bottom: 30px;
+  padding: 15px 0px;
+  border-bottom: 1px solid #ACACAC;
+}
+/* line 55, ../sass/screen.scss */
 body #content .left-column {
   display: inline;
   float: left;
@@ -540,7 +546,7 @@ body #content .left-column {
 * html body #content .left-column {
   overflow-x: hidden;
 }
-/* line 55, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 body #content .right-column {
   display: inline;
   float: left;

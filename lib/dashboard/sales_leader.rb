@@ -9,7 +9,7 @@ module Dashboard
     
     class << self
       def find(bunch)
-        # sleep 3
+        sleep 3
         found = []
         bunch.times do
           found << new

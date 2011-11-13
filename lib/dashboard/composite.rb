@@ -7,23 +7,22 @@ module Dashboard
 
     include RedisCacheable
 
+    def self.load_by_id(id)
+      new(id).load_from_live_or_redis
+    end
+
     def initialize(id)
       @id = id
     end
 
     def load_from_live_or_redis
-      if exists_in_redis?
-        self.rc_read!
-      else
-        load_from_live
-      end
+      create_or_update unless exists_in_redis?
+      self.rc_read!
     end
 
-    def load_from_live
-      # load pig_news
-      # @pig_news = Feedzirra::Feed.fetch_and_parse('http://pigprogress.net/index.xml')
+    def create_or_update
+      @pig_news = Feedzirra::Feed.fetch_and_parse('http://www.pigprogress.net/index.xml')
       
-      # load Wolfram stuff
       wolfram_hogs            = Dashboard::WolframSearch.new
       @current_hog_price      = wolfram_hogs.current_price
       @price_history          = wolfram_hogs.price_history
@@ -32,13 +31,14 @@ module Dashboard
       @sales_leaders          = load_sales_leaders
 
       # load pig_foot_cycle_trends
+      
+
+      self.rc_write!
     end
     
     def load_sales_leaders
       SalesLeader.find(10)
     end
-
-
 
   end
 end

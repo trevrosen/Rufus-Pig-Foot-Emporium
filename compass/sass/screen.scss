@@ -46,6 +46,12 @@ body {
   #content {
     @include column($blueprint-grid-columns); 
 
+    section{
+      margin-bottom: 30px;
+      padding: 15px 0px;
+      border-bottom: 1px solid #ACACAC;
+    }
+
     .left-column{
       @include column(10);
       float: left;
