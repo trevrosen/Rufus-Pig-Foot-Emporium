@@ -518,11 +518,24 @@ body #header, body #footer {
   overflow-x: hidden;
 }
 /* line 46, ../sass/screen.scss */
+body #footer {
+  position: relative;
+  height: 80px;
+  margin-bottom: 20px;
+}
+/* line 50, ../sass/screen.scss */
+body #footer img {
+  position: absolute;
+  left: 48%;
+  width: 66px;
+  height: 81px;
+}
+/* line 58, ../sass/screen.scss */
 body header {
   border-bottom: 2px solid #333;
   margin: 35px 0;
 }
-/* line 50, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 body header .logo {
   background: url("../images/rufus_logo.gif");
   width: 330px;
@@ -530,12 +543,12 @@ body header .logo {
   text-indent: -14000px;
   float: left;
 }
-/* line 58, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 body header .oinkbot {
   margin-top: 25px;
   float: right;
 }
-/* line 65, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 body #content {
   display: inline;
   float: left;
@@ -546,13 +559,13 @@ body #content {
 * html body #content {
   overflow-x: hidden;
 }
-/* line 68, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 body #content section {
   margin-bottom: 30px;
   padding: 15px 0px;
   border-bottom: 1px solid #ACACAC;
 }
-/* line 74, ../sass/screen.scss */
+/* line 86, ../sass/screen.scss */
 body #content .left-column {
   display: inline;
   float: left;
@@ -564,7 +577,7 @@ body #content .left-column {
 * html body #content .left-column {
   overflow-x: hidden;
 }
-/* line 80, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 body #content .right-column {
   display: inline;
   float: left;
