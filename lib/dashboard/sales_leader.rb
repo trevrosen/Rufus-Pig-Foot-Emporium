@@ -19,7 +19,6 @@ module Dashboard
 
       def name
         %w(Steve Joe Earle Rasputin Mo William Lucy Norma Linda Roweena Erol Numeyer Jonesy Wicklestein Weinerslave Jorgensen Donaghy Han Laura Stacy Jane Lebowski)
-        
       end
 
       def office
@@ -38,9 +37,6 @@ module Dashboard
         foo + rand(20) + 1
       end
 
-
-    end
-    
+    end # end class methods
   end
-  
 end

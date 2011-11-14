@@ -4,7 +4,7 @@ $.dashboard = {
     trendLineGraph: function(wrapperSelector, coordinates) {
       coordinates = $.parseJSON(coordinates);
       console.info(coordinates);
-      $.plot($(wrapperSelector), [coordinates]);
+      $.plot($(wrapperSelector), coordinates);
       
     }
   

@@ -9,7 +9,7 @@
       %tr
         %th NAME
         %th OFFICE
-        %th SALES DOLLARS
+        %th SALES (M$)
       -@sales_leaders.each do |leader|
         %tr
           %td=leader.name
@@ -21,13 +21,13 @@
     .trendline-wrapper
     :javascript
       $(function (){
-        $.dashboard.init.trendLineGraph(".trendline-wrapper","#{@test_flot}");
+        $.dashboard.init.trendLineGraph(".trendline-wrapper","#{@graph_points}");
       })
 
 %section.news.clearfix
   %h3 News 
   .left-column
-    -@pig_news.entries.each do |entry|
+    -@pig_news.entries.take(5).each do |entry|
       .entry
         %h4
           %a{:href => "#{entry.url}"}=entry.title

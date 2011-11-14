@@ -17,7 +17,7 @@ module Dashboard
 
     def load_from_live_or_redis
       create_or_update unless exists_in_redis?
-      self.rc_read!
+      self.rc_read
     end
 
     def create_or_update
@@ -29,15 +29,17 @@ module Dashboard
       @most_recent_trade_info = wolfram_hogs.most_recent_trade_info
 
       @sales_leaders          = load_sales_leaders
-
-      # load pig_foot_cycle_trends
-      
+      @pig_foot_cycle_trends  = load_pig_foot_cycle_trends
 
       self.rc_write!
     end
     
     def load_sales_leaders
       SalesLeader.find(10)
+    end
+
+    def load_pig_foot_cycle_trends
+      TrotterTrends.find(3).collect(&:trendline)
     end
 
   end
