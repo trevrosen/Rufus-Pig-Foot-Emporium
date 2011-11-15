@@ -21,8 +21,8 @@ module Dashboard
     end
 
     def create_or_update
-      @pig_news               = load_pig_news(false)
-      wolfram_hogs            = Dashboard::WolframSearch.new(false)
+      @pig_news               = load_pig_news
+      wolfram_hogs            = Dashboard::WolframSearch.new
       @current_hog_price      = wolfram_hogs.current_price
       @price_history          = wolfram_hogs.price_history
       @most_recent_trade_info = wolfram_hogs.most_recent_trade_info
