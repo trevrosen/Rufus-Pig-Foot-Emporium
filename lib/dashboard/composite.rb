@@ -5,15 +5,22 @@ module Dashboard
     attr_reader :current_hog_price, :price_history, :most_recent_trade_info # Wolfram Alpha stats
     attr_reader :sales_leaders, :pig_foot_cycle_trends                      # Made-up BS
 
+    include RedisCacheable
+
     def self.load_by_id(id)
-      new(id).load_all_stats
+      new(id).load_from_live_or_redis
     end
 
     def initialize(id)
       @id = id
     end
 
-    def load_all_stats
+    def load_from_live_or_redis
+      create_or_update unless exists_in_redis?
+      self.rc_read
+    end
+
+    def create_or_update
       @pig_news               = load_pig_news
       wolfram_hogs            = Dashboard::WolframSearch.new
       @current_hog_price      = wolfram_hogs.current_price
@@ -21,7 +28,8 @@ module Dashboard
       @most_recent_trade_info = wolfram_hogs.most_recent_trade_info
       @sales_leaders          = load_sales_leaders
       @pig_foot_cycle_trends  = load_pig_foot_cycle_trends
-      self
+
+      self.rc_write!
     end
     
     def load_sales_leaders
@@ -43,3 +51,4 @@ module Dashboard
     end
   end
 end
+
