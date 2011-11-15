@@ -17,7 +17,7 @@ module Dashboard
 
     def load_pig_foot_cycle_trends
       sleep 2
-      point = lambda{(rand(5)+1) + rand()}
+      point = lambda{rand(5) + rand()}
       (0..8).inject([]){|arr| arr << [point.call, point.call];arr}
     end
 	end
