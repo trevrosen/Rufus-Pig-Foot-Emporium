@@ -35,6 +35,9 @@ A fun demo app for RedisCacheable
 
 ### Git Stuff
 
+******
+******
+
 #### Rufus 
 
 (clone this repo)
@@ -43,25 +46,23 @@ __Start:__ `git checkout arb_start`
 
 __End:__ `git checkout arb_fin`
 
-
-
-
-
+******
 
 #### Redis Cacheable
 
 `git clone git@github.com:trevrosen/redis-cacheable`
 
-__Start:__ `git checkout arb_01`
+__Structure, Namespacing, Config__ `git checkout arb_01`
 
-__Ready to code:__ `git checkout arb_02`
+__Testing Instances: namespaces and key methods__ `git checkout arb_02`
 
-__Per-class separation:__ `git checkout arb_03`
+__Cache keys__ `git checkout arb_03`
 
-__Namespaces:__ `git checkout arb_04`
+__Testing for existence; getting raw Redis string__ `git checkout arb_04`
 
-__Cache key:__ `git checkout arb_05`
 
-__#exists?:__ `git checkout arb_06`
 
-__Reading/Writing:__ `git checkout arb_07`
+
+
+
+
