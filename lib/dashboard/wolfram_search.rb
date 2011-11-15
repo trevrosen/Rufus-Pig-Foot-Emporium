@@ -5,13 +5,12 @@ module Dashboard
     WOLFRAM_ALPHA_APP_ID = "47Y4Y2-98W27H9TRH"
     LEAN_HOGS_QUERY = "http://api.wolframalpha.com/v2/query?input=lean+hogs+commodity+price&appid=#{WOLFRAM_ALPHA_APP_ID}"
 
-    def initialize(file=false)
-      query=LEAN_HOGS_QUERY
-      if file
-        xml = File.open((File.expand_path(File.dirname(__FILE__) + "../../../fixtures/wolfram_hogs_query.xml"))).read
-        @doc = Nokogiri::XML.parse(xml)
+    def initialize(local=true)
+      if local
+        wolfram_file = File.open((File.expand_path(File.dirname(__FILE__) + "../../../fixtures/wolfram_hogs_query.xml"))).read
+        @doc = Nokogiri::XML.parse(wolfram_file)
       else
-        @doc = Nokogiri::XML(open(query))
+        @doc = Nokogiri::XML(open(LEAN_HOGS_QUERY))
       end
     end
 

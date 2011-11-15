@@ -21,13 +21,11 @@ module Dashboard
     end
 
     def create_or_update
-      @pig_news = Feedzirra::Feed.fetch_and_parse('http://www.pigprogress.net/index.xml')
-      
-      wolfram_hogs            = Dashboard::WolframSearch.new
+      @pig_news               = load_pig_news(false)
+      wolfram_hogs            = Dashboard::WolframSearch.new(false)
       @current_hog_price      = wolfram_hogs.current_price
       @price_history          = wolfram_hogs.price_history
       @most_recent_trade_info = wolfram_hogs.most_recent_trade_info
-
       @sales_leaders          = load_sales_leaders
       @pig_foot_cycle_trends  = load_pig_foot_cycle_trends
 
@@ -42,5 +40,14 @@ module Dashboard
       TrotterTrends.find(3).collect(&:trendline)
     end
 
+    def load_pig_news(local=true)
+      if local
+        sleep 2
+        news_file = File.open(File.expand_path(File.dirname(__FILE__) + "../../../fixtures/pignews.xml"), 'r').read
+        Feedzirra::Feed.parse(news_file)
+      else
+        Feedzirra::Feed.fetch_and_parse('http://www.pigprogress.net/index.xml')
+      end
+    end
   end
 end

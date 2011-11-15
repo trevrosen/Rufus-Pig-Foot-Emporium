@@ -9,7 +9,7 @@
       %tr
         %th NAME
         %th OFFICE
-        %th SALES ($mil)
+        %th SALES ($mil hog/cu dcl &euro;)
       -@sales_leaders.each do |leader|
         %tr
           %td=leader.name
@@ -17,7 +17,7 @@
           %td=leader.sales_quantity
 
   .right-column
-    %h3 Current Trotter Trendline
+    %h3 Current TrotterTrendline&trade;
     %small (dry ft/cubic m)
     .trendline-wrapper
     :javascript
