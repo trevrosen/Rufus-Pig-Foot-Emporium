@@ -60,6 +60,8 @@ __Cache keys__ `git checkout arb_03`
 
 __Testing for existence; getting raw Redis string__ `git checkout arb_04`
 
+__Final state__ `git checkout ar_fin`
+
 
 
 
